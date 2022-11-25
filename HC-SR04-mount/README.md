@@ -1,0 +1,3 @@
+# HC-SR04 Servo Mount
+
+This is a copy of the [Servo Bracket Mount HC-SR04 Ultrasonic Sensor](https://www.thingiverse.com/thing:617055) found on Thingiverse created by user jbeale on December 31, 2014 and licensed under the [Creative Commons - Attribution - Share Alike](https://creativecommons.org/licenses/by-sa/3.0/) license. An unmodified version of the original is uploaded here for archival purposes. No additional contributions were made.
