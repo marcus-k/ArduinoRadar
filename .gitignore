@@ -43,3 +43,5 @@ env.bak/
 venv.bak/
 
 .vscode/
+
+Manifest.toml

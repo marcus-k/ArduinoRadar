@@ -3,6 +3,10 @@
 Code for a simple radar setup using an Arduino UNO, HC-SR04 ultrasonic sensor, SG90 
 servo motor, and DHT11 temperature and humidity sensor.
 
+<h1 align="center">
+    <img src="./screenshots/radar.png">
+</h1>
+
 ## Table of Contents
 * [Installation](#installation)
 * [Usage](#usage)
@@ -19,17 +23,46 @@ Both of these libraries can be found in the Arduino IDE's Library Manager under
 `Sketch > Include Library > Manage Libraries...`.
 
 Next, the necessary Python libraries should be installed:
-- NumPy
-- Matplotlib
-- PySerial
-- Pandas
+- [NumPy](https://anaconda.org/conda-forge/numpy)
+- [Matplotlib](https://anaconda.org/conda-forge/matplotlib)
+- [PySerial](https://anaconda.org/conda-forge/pyserial)
+- [Pandas](https://anaconda.org/conda-forge/pandas)
 
-The Anaconda distribution of Python was used to install these libraries. For convenience:
+The Anaconda distribution of Python was used to install these libraries.
 ```
 conda install -c conda-forge numpy pandas matplotlib pyserial
 ```
 
 ## Usage
+
+### Calibration
+
+Before using the radar, calibration should be done to find the speed of sound in the 
+environment you are in. The code is setup to do this in two ways:
+
+1. **Distance-Time Method**  
+    Setup the ultrasonic sensor a set distance away from a flat surface and measure the 
+    time it takes for a ultrasonic wave to return. Dividing the distance by the time 
+    returns the sound speed.
+
+2. **Atmospheric Method**  
+    Calculate the speed of sound based off of ambient conditions including temperature, 
+    relative humidity, pressure, and CO2 concentration.
+
+The data for these methods is recorded at the same time. Set your ultrasonic sensor a 
+known distance away from a flat surface. Change the distance parameter in the 
+`calibration.ino` file to reflect your setup. Upload the `calibration.ino` file to your 
+Arduino and run `calibration.py` on your computer. This will record the temperature, 
+relative humidity, and speed of sound every two seconds while running. Press `CTRL+C` 
+to stop the program and print the mean values of the session. You can use the speed of 
+sound displayed at this point, or a more accurate speed of sound can be calculated 
+following the [instructions](./calibration/calibration.md) in the calibration folder.
+
+### Radar
+
+Once the speed of sound is obtained, update the value in the `radar.ino` file, then 
+upload it to your Arduino. Run the `radar.py` file on your computer to start requesting 
+data from the Arduino. It will be plotted in real-time in the popup graphical interface.
 
 ## Troubleshooting
 
