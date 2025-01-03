@@ -71,3 +71,5 @@ On Linux, one possible issue may be that you do not have permission to read the
 answer and adding myself to the `dialout` group allowed me to read the files.
 
 ## Additional Things to Read
+
+- https://www.mdpi.com/1424-8220/10/8/7421
